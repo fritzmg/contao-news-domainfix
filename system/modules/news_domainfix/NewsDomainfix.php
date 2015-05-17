@@ -25,7 +25,6 @@ class NewsDomainfix extends \Controller
 							($blnIsReadMore ? ' <span class="invisible">'.$strTitle.'</span>' : ''));
 	}
 
-
 	public function fixDomain( $objTemplate, $arrArticle, $objModule )
 	{
 		// check for internal source
