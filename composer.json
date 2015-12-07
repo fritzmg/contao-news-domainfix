@@ -1,6 +1,6 @@
 {
 	"name":"fritzmg/contao-news-domainfix",
-	"description":"Small Contao extension that fixes internal news target links for pages that are on a different domain",
+	"description":"Small Contao extension that fixes news target links for pages that are on a different domain or language.",
 	"keywords":["contao", "news", "internal", "domain"],
 	"type":"contao-module",
 	"homepage":"http://www.inspiredminds.at",
