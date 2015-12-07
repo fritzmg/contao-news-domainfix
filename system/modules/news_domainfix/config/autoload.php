@@ -14,5 +14,5 @@
  */
 ClassLoader::addClasses(array
 (
-	'NewsDomainfix' => 'system/modules/news_domainfix/NewsDomainfix.php',
+	'NewsDomainfix' => 'system/modules/news_domainfix/classes/NewsDomainfix.php',
 ));
