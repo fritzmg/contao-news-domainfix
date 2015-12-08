@@ -24,9 +24,9 @@
 		"contao/core":"~3.0",
 		"contao-community-alliance/composer-installer":"*"
 	},
-    "replace": {
-        "contao-legacy/news_domainfix": "self.version"
-    },
+	"replace": {
+		"contao-legacy/news_domainfix": "self.version"
+	},
 	"extra":{
 		"contao":{
 			"sources":{
