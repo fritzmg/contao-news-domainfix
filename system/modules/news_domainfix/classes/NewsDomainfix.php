@@ -29,6 +29,9 @@ class NewsDomainfix extends \Controller
 
 	public function fixDomain( $objTemplate, $arrArticle, $objModule )
 	{
+		// set base class
+		$objTemplate->class.= ' source-'.$arrArticle['source'];
+
 		// check for internal source
 		if( $arrArticle['source'] != 'internal' && $arrArticle['source'] != 'default' )
 			return;
@@ -49,8 +52,12 @@ class NewsDomainfix extends \Controller
 			// load the page details
 			$objTarget->current()->loadDetails();
 
-			// check domain and language
-			if( ( $objTarget->domain == '' || $objTarget->domain == \Environment::get('host') ) && !( \Config::get('addLanguageToUrl') && $objTarget->rootLanguage != $objPage->rootLanguage ) )
+			// check for domain and language
+			if( $objTarget->domain != '' && $objTarget->domain != \Environment::get('host') )
+				$objTemplate->class.= '-domain';
+			elseif( \Config::get('addLanguageToUrl') && $objTarget->rootLanguage != $objPage->rootLanguage )
+				$objTemplate->class.= '-lang';
+			else
 				return;
 
 			// build the href
@@ -86,8 +93,12 @@ class NewsDomainfix extends \Controller
 			// load the page details
 			$objTarget->current()->loadDetails();
 
-			// check domain
-			if( !$objModule->jumpTo && ( $objTarget->domain == '' || $objTarget->domain == \Environment::get('host') ) && !( \Config::get('addLanguageToUrl') && $objTarget->rootLanguage != $objPage->rootLanguage ) )
+			// check for domain and language
+			if( $objTarget->domain != '' && $objTarget->domain != \Environment::get('host') )
+				$objTemplate->class.= '-domain';
+			elseif( \Config::get('addLanguageToUrl') && $objTarget->rootLanguage != $objPage->rootLanguage )
+				$objTemplate->class.= '-lang';
+			elseif( !$objModule->jumpTo )
 				return;
 
 			// build the href
